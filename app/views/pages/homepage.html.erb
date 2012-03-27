@@ -1,0 +1,25 @@
+<script>
+  $(document).ready(function(){
+    $("button").click(function(){
+      $.ajax({
+        url: "/" + $("input").val()
+        }).done(function(response){
+          $("ul#results").html("");
+          $.each(response, function(key, value){
+            $("ul#results").append("<li>" + value.text + "</li>");
+        });
+      });
+    });
+  });
+</script>
+
+<input type="text"/>
+<button>Submit</button>
+
+<ul id="results">
+  <% if @tweets %>
+    <% @tweets.each do |tweet| %>
+      <li><%= tweet.text %></li>
+    <% end %>
+  <% end %>
+</ul>
