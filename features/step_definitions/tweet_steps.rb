@@ -4,7 +4,7 @@ end
 
 When /^I enter "([^"]*)" in the search field$/ do |hashtag|
   fill_in "Search", with: hashtag
-  click_button "Search"
+  click_button "search_button"
 end
 
 Then /^I should see tweets with "([^"]*)"$/ do |hashtag|
